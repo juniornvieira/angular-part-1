@@ -9,10 +9,22 @@ import { Photo } from '../../photo/photo';
 export class PhotosComponent implements OnInit {
 
   @Input() photos: Photo[] = [];
+  rows: any[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.rows = this.groupColumns(this.photos);
+  }
+
+  groupColumns(photos: Photo[]) {
+    const newRows = [];
+
+    for (let index = 0; index < photos.length; index += 3) {
+      newRows.push(photos.slice(index, index + 3)); // it going to pick it up 3 in 3 photos and add it in newRows
+                              //   0       3
+    }
+    return newRows;
   }
 
 }
