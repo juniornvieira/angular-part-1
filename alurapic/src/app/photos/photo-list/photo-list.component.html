@@ -5,8 +5,8 @@
             type="search"
             placeholder="search..."
             autofocus
-            (keyup)="filter = $event.target.value"
-            >
+            (keyup)="debounce.next($event.target.value)" 
+        >    <!-- debounce.next each keyup on message will be send to listener -->
     </form>
 </div>
 
