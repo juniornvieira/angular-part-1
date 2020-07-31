@@ -1,4 +1,6 @@
-<ap-search></ap-search>
+<ap-search
+    (onTyping)="filter = $event" [value]="filter"> <!-- blue is in children(ap-search) and red is in father(photo-list-component.ts)-->
+</ap-search>
 
 <ap-photos [photos]="photos | filterByDescription: filter"></ap-photos>
 

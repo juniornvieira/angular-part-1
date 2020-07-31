@@ -32,7 +32,8 @@ export class PhotoListComponent implements OnInit {
     this.photoService
       .listFromUserPaginated(this.userName, ++this.currentPage)
       .subscribe(photos => {
-        this.photos = this.photos.concat(photos) //this way, the angular change detenction will works. 
+        this.filter = '';
+        this.photos = this.photos.concat(photos); //this way, the angular change detenction will works. 
                                                  //because we are creating a new referency inbounding property[photos]
         //this.photos.push(...photos); //spread operator - this is like this.photos.push(1,2,3,4,5...);
                                       // this is like - man, do a push to each photo returned
