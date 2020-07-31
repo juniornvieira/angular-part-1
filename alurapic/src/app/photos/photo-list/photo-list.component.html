@@ -1,15 +1,4 @@
-<div class="text-center mt-3 mb-3">
-    <form>
-        <i aria-hidden="true" class="fa fa-search mr-1"></i> <!-- fa = font-awesome mr = margin right from boostrap-->
-        <input
-            class="rounded"
-            type="search"
-            placeholder="search..."
-            autofocus
-            (keyup)="debounce.next($event.target.value)" 
-        >    <!-- debounce.next each keyup on message will be send to listener -->
-    </form>
-</div>
+<ap-search></ap-search>
 
 <ap-photos [photos]="photos | filterByDescription: filter"></ap-photos>
 
@@ -18,3 +7,4 @@
     [hasMore]="hasMore">
 </ap-load-button>
 <!-- binding on click event to load function into the component -->
+
