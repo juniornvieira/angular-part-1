@@ -1,7 +1,8 @@
 <h4 class="text-center">Login</h4>
 
-<form [formGroup]="loginForm" class="form mt-4">
-    <!--loginForm is a property from complenent class -->
+<!-- [(reserved word)]="myFuncition/Field" -->
+<form [formGroup]="loginForm" class="form mt-4" (submit)="login()"><!-- event binding-->
+    <!-- data binding - loginForm is a property from complenent class | login is a function from complenent class -->
 
     <div class="form-group">
         <input formControlName="userName" class="form-control" placeholder="user name" autofocus>
