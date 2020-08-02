@@ -5,7 +5,8 @@
     <!-- data binding - loginForm is a property from complenent class | login is a function from complenent class -->
 
     <div class="form-group">
-        <input formControlName="userName" class="form-control" placeholder="user name" autofocus>
+        <input #userNameInput formControlName="userName" class="form-control" placeholder="user name" autofocus>
+        <!-- #userNameInput - template variable -->
         <!-- formControlName="..." == check component-->
 
         <!-- using ngif a custom component -->
