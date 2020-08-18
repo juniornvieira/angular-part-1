@@ -31,4 +31,9 @@ export class UserService {
         const user = jwt_decode(token) as User; //decodificou token
         this.userSubject.next(user); //emiting for who is  subscribed, in this case the header
     }
+
+    logout() {
+        this.tokenService.removeToken();
+        this.userSubject.next(null);
+    }
 }
