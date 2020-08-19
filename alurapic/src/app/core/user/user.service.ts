@@ -12,6 +12,8 @@ export class UserService {
         //header.component(where user will be consumid) is load after sigin.component (where the token is emitted)
     //who subscribe in userSubject will be receiving a User
 
+    private userName: string;
+
     constructor(private tokenService: TokenService) { //when the page was closed and open again
         this.tokenService.hasToken() &&
             this.decodeAndNotify();
@@ -29,11 +31,20 @@ export class UserService {
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
         const user = jwt_decode(token) as User; //decodificou token
+        this.userName = user.name;
         this.userSubject.next(user); //emiting for who is  subscribed, in this case the header
     }
 
     logout() {
         this.tokenService.removeToken();
         this.userSubject.next(null);
+    }
+
+    isLogged() {
+        return this.tokenService.hasToken();
+    }
+
+    getUserName() {
+        return this.userName;
     }
 }
