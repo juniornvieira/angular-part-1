@@ -14,7 +14,8 @@
 
         <ng-template #login>
             <span class="navbar-text">
-                Please, login!
+                <!-- To redirect to other pages, isn't allowed use href in these cases. We going to refresh the page and lose the page state -->
+                <a [routerLink]="['']">Please, login!</a> 
             </span>
         </ng-template>
 
