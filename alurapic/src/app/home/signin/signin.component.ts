@@ -26,6 +26,9 @@ export class SignInComponent implements OnInit {
             userName: ['', Validators.required],  //default values, validations
             password: ['', Validators.required]   //check the template
         });
+
+        this.platformDetectorService.isPlatformBrowser() && this.userNameInput.nativeElement.focus();
+        //in order to receive the focus
     }
 
     login() {

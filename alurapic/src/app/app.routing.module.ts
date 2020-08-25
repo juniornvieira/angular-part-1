@@ -8,16 +8,26 @@ import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 import { SignInComponent } from './home/signin/signin.component';
 import { AuthGuard } from './core/auth/auth.guard';
 import { SignUpComponent } from './home/signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
     {
-        path: '',
-        component: SignInComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'signup',
-        component: SignUpComponent,
+        path: '',//father homecomponent has two children
+        component: HomeComponent, 
+        canActivate: [AuthGuard],
+        children: [
+            {
+                path: '', //first child
+                component: SignInComponent,
+            },
+            {
+                path: 'signup', //second child
+                component: SignUpComponent,
+            },
+        ]
+        // Com isso, teremos um caminho para SignInComponent e para SignUpComponent, e se acessarmos localhost:4200, teremos HomeComponent. 
+        // Por conta do seu path, que é igual à da rota filha, o SignInComponent será exibido primeiro. No entanto, se clicarmos no link de SignInComponent 
+        // para acessarmos a página de cadastro de usuário, é o SignUpComponent que será carregado, dentro do Router outlet do HomeComponent.
     },
     {
         path: 'user/:userName',         // when the path is called

@@ -6,11 +6,13 @@ import { RouterModule } from '@angular/router';
 
 import { VMessageModule } from '../shared/components/vmessage/vmessage.module';
 import { SignUpComponent } from './signup/signup.component';
+import { HomeComponent } from './home.component';
 
 @NgModule({
     declarations: [
         SignInComponent,
-        SignUpComponent
+        SignUpComponent,
+        HomeComponent
     ],
     imports: [
         ReactiveFormsModule,
