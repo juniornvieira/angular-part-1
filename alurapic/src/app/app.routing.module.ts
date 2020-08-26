@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
     {
         path: '',//father homecomponent has two children
-        component: HomeComponent, 
+        component: HomeComponent,
         canActivate: [AuthGuard],
         children: [
             {
@@ -44,11 +44,11 @@ const routes: Routes = [
         path: '**',
         component: NotFoundComponent
     }
-    
+
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { useHash: true })],
     exports: [RouterModule] // who import AppRoutingModule will receive RouterModule
 })
 export class AppRoutingModule { }
